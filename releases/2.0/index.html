@@ -21,8 +21,9 @@
                     {
                         width: 1920,
                         height: 1080,
-                        overlay: window._overlay,
-                        onOverlayChanged: (overlay) => { window._overlay = overlay; }
+                        onOverlayChanged: (overlay) => {
+                            window._overlay = overlay;
+                        }
                     }
                 ),
                 document.querySelector(".app")
