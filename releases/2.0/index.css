@@ -1,15 +1,17 @@
 html, body { overflow: hidden; height: 100%; width: 100%; padding: 0; margin: 0; }
 body { display: flex; flex-direction: column; background: #293742ee; }
-.top-bar { display: flex; flex-direction:row; align-items: center; justify-content: space-between; padding: 5px 2px; border-bottom: 1px solid #00000080; }
-.top-bar .left { display: flex; flex-direction: row; align-items: stretch; }
-.top-bar .left a#logo { padding-left: 10px; display: flex; flex-direction: row; align-items: center; text-decoration: none; color: #fff; font-size: 16px; font-family: 'Roboto', sans-serif; transition: opacity 0.1s linear; }
-.top-bar .left a#logo:hover .bp3-tag { background-color: rgba(138, 155, 168, 0.8); transition: background-color 0.2s linear; }
-.top-bar .left a#logo .bp3-tag { margin-left: 5px; }
+.top-bar { display: flex; flex-direction:row; align-items: center; justify-content: center; padding: 5px 2px; position: absolute; right: 5px; bottom: 5px; background: #cccccc40; z-index: 100000; }
+.top-bar .left { display: flex; flex-direction: row; align-items: center; }
+.top-bar .left .logo { width: 25px; height: 25px; margin-left: 5px; vertical-align: middle; cursor: pointer; }
+.top-bar .left .info-box { padding: 10px; }
+.top-bar .left .info-box .title { font-size: 1.2em; font-weight: bold; margin-bottom: 10px; }
+.top-bar .left .info-box .row { padding: 5px 0; display: flex; align-items: center; }
 .top-bar .left .import-export { padding-left: 10px; margin-left: 10px; border-left: 1px solid #ffffff60; }
+.top-bar .left .import-export button { text-shadow: 0 0 2px #000; }
 .top-bar .center { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
 .top-bar .center > * { margin-left: 10px; }
 .top-bar .right { display: flex; flex-direction: row; align-items: center; justify-content: flex-end; }
-a.btn-github { padding: 0 10px; display: flex; align-items: center; color: #fff !important; font-size: 12px; line-height: 20px; font-weight: bold; text-decoration: none; }
+a.btn-github { display: inline-flex; align-items: center; color: #fff !important; font-weight: bold; text-decoration: none; }
 a.btn-github svg { margin-right: 0.25em; }
 
 
