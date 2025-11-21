@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XM5PKRZ8Q"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4XM5PKRZ8Q');
+    </script>
+	<meta charset='utf-8'>
+    <meta name='viewport' content='width=700,initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Galada&display=swap" rel="stylesheet">
+    <title>The Ghosts Of Thanksgiving</title>
+    <style>
+        html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
+        body { padding: 0; font-family: "Galada"; }
+        #brand { position: fixed; bottom: 5px; right: 5px; font-size: 20px; color: #000; transform-origin: bottom right; text-decoration: none; font-family: Calibri; font-weight: bold; z-index: 2; background: #fff; }
+        #brand img { height: 1em; width: 1em; vertical-align: bottom; }
+        .left { position: fixed; top: 0; left: calc((100vw - 700px)/2); height: 100%; width: 700px; background:#444444;  }
+        .left > label { position: absolute; top: 0; right: 0; font-size: 40px; color: #fff; transform: rotate(-90deg); transform-origin: bottom right; width: 500px; }
+        section { position: relative; width: 450px; margin: 50px auto 150px auto; }
+        section > img { width: 100%; }
+        section > button { position: absolute; transition: transform 0.5s ease-out; background-color: #ff000080; border-radius: 1000px; height: 100px; width: 100px; border: 0; outline: none; background-image: url('data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20viewBox%3D%220%200%2020%2020%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M16%2010c0-.36-.2-.67-.49-.84l.01-.01-10-6-.01.01A.991.991%200%20005%203c-.55%200-1%20.45-1%201v12c0%20.55.45%201%201%201%20.19%200%20.36-.07.51-.16l.01.01%2010-6-.01-.01c.29-.17.49-.48.49-.84z%22%20fill-rule%3D%22evenodd%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-size: 50% 50%; background-position: center center; }
+        section > button[playing="true"] { background-image: url('data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20viewBox%3D%220%200%2020%2020%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7%203H4c-.55%200-1%20.45-1%201v12c0%20.55.45%201%201%201h3c.55%200%201-.45%201-1V4c0-.55-.45-1-1-1zm9%200h-3c-.55%200-1%20.45-1%201v12c0%20.55.45%201%201%201h3c.55%200%201-.45%201-1V4c0-.55-.45-1-1-1z%22%20fill-rule%3D%22evenodd%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E'); }
+        section > button:hover { transform: scale(1.3); }
+        #kiddo-1 { top: 462px; left: 59px; }
+        #kiddo-2 { top: 354px; left: -28px; }
+        #kiddo-3 { top: 216px; left: -27px; }
+        #kiddo-4 { top: 110px; left: 58px; }
+        #kiddo-5 { top: 80px; left: 193px; }
+        #kiddo-6 { top: 139px; left: 317px; }
+        #kiddo-7 { top: 265px; left: 375px; }
+
+        #special-1 { top: 462px; left: 59px; }
+        #special-2 { top: 381px; left: -15px; }
+        #special-3 { top: 274px; left: -38px; }
+        #special-4 { top: 127px; left: 304px; }
+        #special-5 { top: 222px; left: 366px; }
+
+        #conn-1 { top: 457px; left: 52px; }
+        #conn-2 { top: 375px; left: -18px; }
+        #conn-3 { top: 267px; left: -38px; }
+        #conn-4 { top: 163px; left: 1px; }
+        #conn-5 { top: 105px; left: 275px; }
+        #conn-6 { top: 202px; left: 359px; }
+
+        #trad-1 { top: 451px; left: 44px; }
+        #trad-2 { top: 365px; left: -23px; }
+        #trad-3 { top: 256px; left: -37px; }
+        #trad-4 { top: 107px; left: 274px; }
+        #trad-5 { top: 202px; left: 359px; }
+
+        .bottom { height: 50px; }
+
+        @media (max-width: 700px) {
+            .left { left: 0; width: 100%; }
+        }
+    </style>
+    <script>
+        let state = {};
+        function play(target, url) {
+            target.setAttribute("playing", "true");
+            let audio = new Audio(url);
+            audio.addEventListener("ended", function() { stop(url); });
+            audio.play();
+            state[url] = { audio, target };
+        }
+        function stop(url) {
+            let item = state[url];
+            if(!item) { return; }
+            item.audio.pause();
+            item.audio.currentTime = 0;
+            item.target.setAttribute("playing", "false");
+            delete state[url];
+        }
+        window.addEventListener("click", function(evt) {
+            const url = evt.target.getAttribute("url");
+            if (url) {
+                if (state[url])
+                    stop(url);
+                else
+                    play(evt.target, url);
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <div id="brand">More nonsense @ <a href="https://twitch.tv/MikeSci"><img src="glitch.svg" />twitch.tv/MikeSci</a></div>
+
+    <div class="left">
+        <label>The Ghosts Of Thanksgiving</label>
+    </div>
+    <section>
+        <img src="traditionalist.png" alt="The Traditionalist" />
+        <button id="trad-1" url="sounds/1606090136258.ogg"></button>
+        <button id="trad-2" url="sounds/1606090136255.ogg"></button>
+        <button id="trad-3" url="sounds/1606090136251.ogg"></button>
+        <button id="trad-4" url="sounds/1606090136208.ogg"></button>
+        <button id="trad-5" url="sounds/1606090136102.ogg"></button>
+    </section>
+
+    <section>
+        <img src="special-diet.png" alt="The Special Diet" />
+        <button id="special-1" url="sounds/1606089973857.ogg"></button>
+        <button id="special-2" url="sounds/1606089986355.ogg"></button>
+        <button id="special-3" url="sounds/1606089988319.ogg"></button>
+        <button id="special-4" url="sounds/1606089990066.ogg"></button>
+        <button id="special-5" url="sounds/1606089991909.ogg"></button>
+    </section>
+
+    <section>
+        <img src="kiddo.png" alt="The Kiddo" />
+        <button id="kiddo-1" url="sounds/1606088949190.ogg"></button>
+        <button id="kiddo-2" url="sounds/1606088941954.ogg"></button>
+        <button id="kiddo-3" url="sounds/1606093201412.ogg"></button>
+        <button id="kiddo-4" url="sounds/1606093201401.ogg"></button>
+        <button id="kiddo-5" url="sounds/1606093201398.ogg"></button>
+        <button id="kiddo-6" url="sounds/1606093201400.ogg"></button>
+        <button id="kiddo-7" url="sounds/1606093201420.ogg"></button>
+    </section>
+
+    <section>
+        <img src="connoisseur.png" alt="The Connoisseur" />
+        <button id="conn-1" url="sounds/1606090072700.ogg"></button>
+        <button id="conn-2" url="sounds/1606090070751.ogg"></button>
+        <button id="conn-3" url="sounds/1606090069007.ogg"></button>
+        <button id="conn-4" url="sounds/1606090066264.ogg"></button>
+        <button id="conn-5" url="sounds/1606090064813.ogg"></button>
+        <button id="conn-6" url="sounds/1606090063460.ogg"></button>
+    </section>
+
+    <div class="bottom"></div>
+
+</body>
+</html>
